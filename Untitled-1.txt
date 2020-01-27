@@ -1,0 +1,154 @@
+----------------------------------------------------------------------------------
+-- Company: 
+-- Engineer: 
+-- 
+-- Create Date:    21:25:24 11/16/2019 
+-- Design Name: 
+-- Module Name:    calling_mod - Behavioral 
+-- Project Name: 
+-- Target Devices: 
+-- Tool versions: 
+-- Description: 
+--
+-- Dependencies: 
+--
+-- Revision: 
+-- Revision 0.01 - File Created
+-- Additional Comments: 
+--
+----------------------------------------------------------------------------------
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+-- Uncomment the following library declaration if using
+-- arithmetic functions with Signed or Unsigned values
+--use IEEE.NUMERIC_STD.ALL;
+
+-- Uncomment the following library declaration if instantiating
+-- any Xilinx primitives in this code.
+--library UNISIM;
+--use UNISIM.VComponents.all;
+
+entity calling_mod is
+
+    Port(     a : inout  STD_LOGIC_VECTOR (31 downto 0);
+            lca : in  STD_LOGIC_VECTOR (1 downto 0);
+            rca : in  STD_LOGIC_VECTOR (1 downto 0);
+		   asin : in std_logic;
+              b : inout  STD_LOGIC_VECTOR (31 downto 0);
+            lcb : in STD_LOGIC_VECTOR (1 downto 0);
+            rcb : in STD_LOGIC_VECTOR (1 downto 0);
+		   bsin : in std_logic;
+			  c : inout STD_LOGIC_VECTOR(31 downto 0);
+			 op : in STD_LOGIC_VECTOR (1 downto 0);
+			sin : out std_logic;
+			 fp : out std_logic_vector(3 downto 0 )
+		);
+			  
+
+end calling_mod;
+
+architecture Behavioral of calling_mod is
+
+
+component thirtytwo_bit_full_adder is
+    Port ( a : in  STD_LOGIC_VECTOR (31 downto 0);
+           b : in  STD_LOGIC_VECTOR (31 downto 0);
+           cin : in  STD_LOGIC;
+           cout : out  STD_LOGIC;
+           s : out  STD_LOGIC_VECTOR (31 downto 0)
+			  );
+end component;
+
+component sub is
+ port(
+        a: in std_logic_vector(31 downto 0);
+        b: in std_logic_vector(31 downto 0);
+		  c : out std_logic_vector(31 downto 0);
+		  csin : out std_logic 
+	   );
+end component;
+
+
+component mult64 is
+	Port ( 
+	a : in std_logic_vector(31 downto 0);
+	b : in std_logic_vector(31 downto 0);
+	prod : out std_logic_vector(31 downto 0));
+end component;
+
+--component div_binary is
+--     port (
+--         ina : inout unsigned (23 downto 0);-- range 0 to 99;
+--         inb:  inout unsigned (23 downto 0);-- range 1 to 9;
+--         quot:  out unsigned (23 downto 0);-- range 0 to 99;
+--         rest : out unsigned (23 downto 0)
+--			);
+--			
+--end component;
+
+
+signal co1,co2,co3: std_logic;
+signal t1,t2,t3,t4: std_logic_vector(31 downto 0);
+
+
+
+begin
+
+f1 :thirtytwo_bit_full_adder port map(a,b,'0',co1,t1);
+f2: sub port map(b,a,t2,co2);
+f3: sub port map(a,b,t3,co3);
+f4: mult64 port map(a,b,t4);
+
+process (t1,t2,t3)
+  begin
+		if(op="00") then
+			if asin=bsin then
+				c<=t1;
+				sin<=asin;
+			else
+				if(asin='1') then
+					c<=t2;
+					sin<=co2;
+				else
+					c<=t3;
+					sin<=co3;
+				end if;
+			end if;
+			fp<="0010";
+		elsif (op="01") then
+         if asin=bsin then
+				if(asin='1') then
+					c<=t2;
+					sin<=co2;
+				else
+					c<=t3;
+					sin<=co3;
+				end if;
+			else 
+				if(asin='1') then
+					c<=t1;
+					sin<='1';  -- 1 is negative   0 is positive
+				else
+					c<=t1;
+					sin<='0';
+				end if;
+			end if;
+			fp<="0010";
+		elsif (op="10") then
+			if asin=bsin then
+				c<=t4;
+			   sin<='0';
+				
+			else	
+				c<=t4;
+				sin<='1';
+			end if;
+			fp<="0100";
+		end if; 
+		
+		
+  end process;
+
+
+end Behavioral;

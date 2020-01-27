@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="warning" file="HDLCompiler" num="92" delta="new" >"H:\Semester 5\EL 203 - 4.5 - Embedded Hardware Designs\Project\Calculator\subtraction.vhd" Line 45: <arg fmt="%s" index="1">comp2</arg> should be on the sensitivity list of the process
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="92" delta="new" >"H:\Semester 5\EL 203 - 4.5 - Embedded Hardware Designs\Project\Calculator\subtraction.vhd" Line 49: <arg fmt="%s" index="1">comp3</arg> should be on the sensitivity list of the process
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"H:\Semester 5\EL 203 - 4.5 - Embedded Hardware Designs\Project\Calculator\multiplication.vhd" Line 43: Assignment to <arg fmt="%s" index="1">t11</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="error" file="HDLCompiler" num="410" delta="new" >"H:\Semester 5\EL 203 - 4.5 - Embedded Hardware Designs\Project\Calculator\calculations.vhd" Line 60: Expression has <arg fmt="%d" index="1">39</arg> elements ; expected <arg fmt="%d" index="2">32</arg>
+</msg>
+
+</messages>
+

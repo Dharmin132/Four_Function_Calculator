@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "secureip" -o "H:/Semester 5/EL 203 - 4.5 - Embedded Hardware Designs/Project/Calculator/binary_to_BCD_isim_beh.exe" -prj "H:/Semester 5/EL 203 - 4.5 - Embedded Hardware Designs/Project/Calculator/binary_to_BCD_beh.prj" "work.binary_to_BCD" 

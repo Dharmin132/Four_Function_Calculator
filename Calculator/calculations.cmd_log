@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "H:/Semester 5/EL 203 - 4.5 - Embedded Hardware Designs/Project/Calculator/calculations.xst" -ofn "H:/Semester 5/EL 203 - 4.5 - Embedded Hardware Designs/Project/Calculator/calculations.syr" 

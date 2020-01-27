@@ -1,0 +1,29 @@
+Command line:
+   binary_to_BCD_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  63267
+
+Fri Nov 22 11:56:09 2019
+
+
+ Elaboration Time: 0.125 sec
+
+ Current Memory Usage: 5164.18 Meg
+
+ Total Signals          : 15
+ Total Nets             : 342
+ Total Signal Drivers   : 30
+ Total Blocks           : 4
+ Total Primitive Blocks : 4
+ Total Processes        : 23
+ Total Traceable Variables  : 10
+ Total Scalar Nets and Variables : 720
+Total Line Count : 47
+
+ Total Simulation Time: 0.125 sec
+
+ Current Memory Usage: 5006.89 Meg
+
+Fri Nov 22 11:57:35 2019
+

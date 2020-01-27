@@ -1,0 +1,29 @@
+Command line:
+   clc_tb_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  60555
+
+Fri Nov 22 10:38:45 2019
+
+
+ Elaboration Time: 0.140625 sec
+
+ Current Memory Usage: 5172.76 Meg
+
+ Total Signals          : 1256
+ Total Nets             : 1741
+ Total Signal Drivers   : 1142
+ Total Blocks           : 740
+ Total Primitive Blocks : 659
+ Total Processes        : 1133
+ Total Traceable Variables  : 539
+ Total Scalar Nets and Variables : 2648
+Total Line Count : 940
+
+ Total Simulation Time: 0.203125 sec
+
+ Current Memory Usage: 4700.9 Meg
+
+Fri Nov 22 11:41:39 2019
+

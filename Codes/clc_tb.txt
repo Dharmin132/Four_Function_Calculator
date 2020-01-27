@@ -1,0 +1,85 @@
+LIBRARY ieee;
+  USE ieee.std_logic_1164.ALL;
+  USE ieee.numeric_std.ALL;
+
+  ENTITY testbench IS
+  END testbench;
+
+  ARCHITECTURE behavior OF testbench IS 
+
+  -- Component Declaration
+          COMPONENT BCD_inout is
+port (
+			bcd1 : in std_logic_vector(31 downto 0);
+			bcd2 : in std_logic_vector(31 downto 0);
+			sin1 : in std_logic ;
+			sin2 : in std_logic ;
+			rca  : in std_logic_vector(1 downto 0);
+			lca  : in std_logic_vector(1 downto 0);
+			rcb  : in std_logic_vector(1 downto 0);
+			lcb  : in std_logic_vector(1 downto 0);
+			op   : in std_logic_vector(1 downto 0);
+			bcdout : out std_logic_vector(31 downto 0);
+			sinout : out std_logic;
+			fp     : inout std_logic_vector(3 downto 0)
+			);
+			
+end component;
+
+signal   bcd1 : std_logic_vector(31 downto 0);
+signal	bcd2 : std_logic_vector(31 downto 0);
+signal   sin1 : std_logic ;
+signal	sin2 : std_logic ;
+signal   rca  : std_logic_vector(1 downto 0);
+signal   lca  : std_logic_vector(1 downto 0);
+signal	rcb  : std_logic_vector(1 downto 0);
+signal	lcb  : std_logic_vector(1 downto 0);
+signal	op   : std_logic_vector(1 downto 0);
+signal	bcdout : std_logic_vector(31 downto 0);
+signal	sinout :  std_logic;
+signal	fp     :  std_logic_vector(3 downto 0);
+
+  BEGIN
+
+  -- Component Instantiation
+          uut: BCD_inout PORT MAP(
+         bcd1 => bcd1,
+			bcd2 => bcd2,
+			sin1 => sin1,
+			sin2 => sin2,
+			rca => rca,
+			lca => lca,
+			rcb => rcb,
+			lcb => lcb,
+			op => op,
+			bcdout => bcdout,
+			sinout => sinout,
+			fp => fp
+          );
+
+
+  --  Test Bench Statements
+     tb : PROCESS
+     BEGIN
+
+        wait for 100 ns; -- wait until global set/reset completes
+        
+		   bcd1 <= "00000000000000000000000000010001";
+			bcd2 <= "00000000000000000000000000010001";
+			sin1 <= '0';
+			sin2 <= '0';
+			rca <= "00";
+			lca <= "00";
+			rcb <= "00";
+			lcb <= "00";
+			op  <= "00";
+		  
+		  
+		  
+        -- Add user defined stimulus here
+
+        wait; -- will wait forever
+     END PROCESS tb;
+  --  End Test Bench 
+
+  END;

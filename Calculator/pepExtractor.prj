@@ -1,0 +1,6 @@
+work	"calculations.vhd"
+work	"fourbit_adder.vhd"
+work	"full_adder.vhd"
+work	"multiplication.vhd"
+work	"subtraction.vhd"
+work	"thirtytwobit_adder.vhd"
